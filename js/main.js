@@ -758,20 +758,30 @@
   }
 
   /* ============================================================
-     DYNAMIC GALLERY — builds from gallery.php (folder scan)
-     Falls back to the built-in list when that is unavailable.
+     DYNAMIC GALLERY
+     1) gallery.php  — live folder scan (XAMPP / local dev)
+     2) gallery.json — static manifest (GitHub Pages / any static host)
+     3) built-in list — last-resort fallback
      ============================================================ */
+  function fetchList(url) {
+    return fetch(url, { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error(url + ' unavailable');
+      return r.json();
+    });
+  }
+
+  function useServerList(items) {
+    if (Array.isArray(items) && items.length > 0) {
+      GALLERY_IMAGES = items;
+    }
+    buildGallery();
+  }
+
   function loadServerGallery() {
-    fetch('gallery.php', { cache: 'no-store' })
-      .then(function (r) {
-        if (!r.ok) throw new Error('server gallery unavailable');
-        return r.json();
-      })
-      .then(function (items) {
-        if (Array.isArray(items) && items.length > 0) {
-          GALLERY_IMAGES = items;
-        }
-        buildGallery();
+    fetchList('gallery.php')
+      .then(useServerList)
+      .catch(function () {
+        return fetchList('gallery.json').then(useServerList);
       })
       .catch(function () {
         buildGallery();
