@@ -442,6 +442,57 @@
   onScroll();
 
   /* ============================================================
+     HERO — parallax background + animated stats
+     ============================================================ */
+  var heroBg = document.querySelector('.hero-bg');
+  var heroStats = document.querySelector('.hero-stats');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateCountUp() {
+    document.querySelectorAll('.hero-stats .count').forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      if (reduceMotion) { el.textContent = target; return; }
+      var duration = 1400;
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  if (heroStats && 'IntersectionObserver' in window) {
+    var statsObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCountUp();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    statsObserver.observe(heroStats);
+  } else if (heroStats) {
+    animateCountUp();
+  }
+
+  var heroTick = false;
+  window.addEventListener('scroll', function () {
+    if (reduceMotion || !heroBg || heroTick) return;
+    heroTick = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY;
+      if (y <= window.innerHeight) {
+        heroBg.style.backgroundPosition = 'center calc(50% + ' + (y * 0.25) + 'px)';
+      }
+      heroTick = false;
+    });
+  });
+
+  /* ============================================================
      MOBILE MENU
      ============================================================ */
   var hamburger = document.getElementById('hamburger');
@@ -575,6 +626,7 @@
 
   function buildGallery() {
     if (!galleryGrid) return;
+    galleryGrid.innerHTML = '';
     GALLERY_IMAGES.forEach(function (file) {
       var src = GALLERY_FOLDER + encodePath(file);
 
@@ -705,5 +757,26 @@
     });
   }
 
-  buildGallery();
+  /* ============================================================
+     DYNAMIC GALLERY — builds from gallery.php (folder scan)
+     Falls back to the built-in list when that is unavailable.
+     ============================================================ */
+  function loadServerGallery() {
+    fetch('gallery.php', { cache: 'no-store' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('server gallery unavailable');
+        return r.json();
+      })
+      .then(function (items) {
+        if (Array.isArray(items) && items.length > 0) {
+          GALLERY_IMAGES = items;
+        }
+        buildGallery();
+      })
+      .catch(function () {
+        buildGallery();
+      });
+  }
+
+  loadServerGallery();
 })();
