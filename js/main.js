@@ -14,6 +14,7 @@
     ms: {
       nav_home: 'Utama', nav_about: 'Tentang Kami', nav_dest: 'Destinasi',
       nav_promo: 'Promosi', nav_why: 'Kenapa Kami', nav_contact: 'Hubungi',
+      nav_galeri: 'Galeri',
       nav_wa: 'WhatsApp Kami',
 
       hero_badge: 'Dipercayai 10+ Tahun',
@@ -116,6 +117,10 @@
       testi3_name: 'Keluarga Ahmad',
       testi3_trip: 'Pakej Switzerland',
 
+      galeri_tag: 'Galeri',
+      galeri_title: 'Kenangan <span class="highlight">Perjalanan</span>',
+      galeri_desc: 'Gambar-gambar pilihan daripada pakej percutian dan umrah kami. Klik untuk paparan penuh.',
+
       contact_tag: 'Hubungi Kami',
       contact_title: 'Jom Rancang <span class="highlight">Percutian Anda</span>',
       contact_desc: 'Kami sedia membantu anda. Hantar mesej di WhatsApp atau hubungi kami terus — respons pantas setiap hari.',
@@ -164,6 +169,7 @@
     en: {
       nav_home: 'Home', nav_about: 'About Us', nav_dest: 'Destinations',
       nav_promo: 'Promotions', nav_why: 'Why Us', nav_contact: 'Contact',
+      nav_galeri: 'Gallery',
       nav_wa: 'WhatsApp Us',
 
       hero_badge: 'Trusted for 10+ Years',
@@ -265,6 +271,10 @@
       testi3_text: '"Holiday in Switzerland on a reasonable budget. Everything customized to our taste. Excellent!"',
       testi3_name: 'Ahmad Family',
       testi3_trip: 'Switzerland Package',
+
+      galeri_tag: 'Gallery',
+      galeri_title: 'Journey <span class="highlight">Memories</span>',
+      galeri_desc: 'Selected photos from our holiday and umrah packages. Click for full view.',
 
       contact_tag: 'Contact Us',
       contact_title: "Let's Plan <span class=\"highlight\">Your Trip</span>",
@@ -492,4 +502,188 @@
     var text = encodeURIComponent(lines.join('\n'));
     window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text, '_blank');
   });
+
+  /* ============================================================
+     GALERI — skeleton loader + lazy loading + lightbox
+     ============================================================ */
+  var GALLERY_FOLDER = 'assets/gallery/';
+  var GALLERY_IMAGES = [
+    'WhatsApp Image 2026-08-18 at 10.03.32 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 10.03.32 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 10.03.33 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.18 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.18 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.19 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.20 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.20 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.21 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.21 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.22 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.22 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.23 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.23 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.24 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.25 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.25 PM (2).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.25 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.26 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.26 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.27 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.28 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.28 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.29 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.29 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.30 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.30 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.31 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.31 PM (2).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.31 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.32 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.32 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.33 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.33 PM (2).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.33 PM.jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.34 PM (1).jpeg',
+    'WhatsApp Image 2026-08-18 at 9.56.34 PM.jpeg'
+  ];
+
+  var galleryGrid = document.getElementById('galleryGrid');
+
+  function encodePath(str) {
+    return str.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29');
+  }
+
+  function buildGallery() {
+    if (!galleryGrid) return;
+    GALLERY_IMAGES.forEach(function (file) {
+      var src = GALLERY_FOLDER + encodePath(file);
+
+      var item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.dataset.src = src;
+
+      var skeleton = document.createElement('div');
+      skeleton.className = 'gallery-skeleton';
+
+      var img = document.createElement('img');
+      img.className = 'gallery-img';
+      img.alt = 'Galeri TravelBajetAntarabangsa';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.dataset.src = src;
+
+      item.appendChild(skeleton);
+      item.appendChild(img);
+      galleryGrid.appendChild(item);
+    });
+    initLazyGallery();
+    initLightbox();
+  }
+
+  function loadGalleryImage(img) {
+    if (img.dataset.loaded) return false;
+    img.dataset.loaded = 'true';
+    img.src = img.dataset.src;
+    return true;
+  }
+
+  function initLazyGallery() {
+    var imgs = document.querySelectorAll('.gallery-img');
+    if (!('IntersectionObserver' in window)) {
+      imgs.forEach(function (img) {
+        img.addEventListener('load', removeSkeleton);
+        loadGalleryImage(img);
+      });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var img = entry.target;
+          if (loadGalleryImage(img)) {
+            img.addEventListener('load', removeSkeleton);
+            img.addEventListener('error', removeSkeleton);
+          }
+          io.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px' });
+    imgs.forEach(function (img) { io.observe(img); });
+  }
+
+  function removeSkeleton(e) {
+    var img = e.target;
+    var item = img.closest('.gallery-item');
+    if (item) {
+      var skeleton = item.querySelector('.gallery-skeleton');
+      if (skeleton) { skeleton.style.opacity = '0'; skeleton.addEventListener('transitionend', function () { skeleton.remove(); }); }
+    }
+    img.classList.add('loaded');
+  }
+
+  /* ----- Lightbox ----- */
+  var openIndex = -1;
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxSkeleton = document.getElementById('lightboxSkeleton');
+
+  function showLightbox(index) {
+    var imgs = document.querySelectorAll('.gallery-img');
+    if (imgs.length === 0) return;
+    if (index < 0) index = imgs.length - 1;
+    if (index > imgs.length - 1) index = 0;
+    openIndex = index;
+
+    lightboxImg.classList.remove('loaded');
+    lightboxImg.style.opacity = '0';
+    lightboxSkeleton.style.opacity = '1';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    var src = imgs[index].dataset.src;
+    lightboxImg.src = src;
+  }
+
+  function lightboxImgLoaded() {
+    lightboxImg.classList.add('loaded');
+    lightboxImg.style.opacity = '';
+    lightboxSkeleton.style.opacity = '0';
+  }
+
+  lightboxImg.addEventListener('load', lightboxImgLoaded);
+  lightboxImg.addEventListener('error', function () {
+    lightboxSkeleton.style.opacity = '0';
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    openIndex = -1;
+  }
+
+  function initLightbox() {
+    document.querySelectorAll('.gallery-item').forEach(function (item, i) {
+      item.addEventListener('click', function () { showLightbox(i); });
+    });
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxPrev').addEventListener('click', function (e) {
+      e.stopPropagation();
+      showLightbox(openIndex - 1);
+    });
+    document.getElementById('lightboxNext').addEventListener('click', function (e) {
+      e.stopPropagation();
+      showLightbox(openIndex + 1);
+    });
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showLightbox(openIndex - 1);
+      if (e.key === 'ArrowRight') showLightbox(openIndex + 1);
+    });
+  }
+
+  buildGallery();
 })();

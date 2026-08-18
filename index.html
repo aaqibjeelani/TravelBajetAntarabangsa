@@ -5,11 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TravelBajetAntarabangsa | Farafisyah Travel &amp; Tours</title>
   <meta name="description" content="TravelBajetAntarabangsa - Farafisyah Travel & Tours. Pakej percutian dalam & luar negara, pakej umrah dengan harga bajet. Hubungi kami melalui WhatsApp.">
+  <meta name="keywords" content="TravelBajetAntarabangsa, Farafisyah Travel, pakej umrah, pakej percuma luar negara, agensi pelancongan, Kota Bharu, travel budget">
+  <meta name="author" content="Aaqib Jeelani">
+  <meta name="theme-color" content="#0e7c7b">
+  <link rel="icon" type="image/png" href="assets/img/site.png">
+  <link rel="apple-touch-icon" href="assets/img/site.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TravelBajetAntarabangsa | Farafisyah Travel &amp; Tours">
+  <meta property="og:description" content="Pakej percutian dalam & luar negara, pakej umrah dengan harga bajet. Kegembiraan Anda, Kepuasan Kami. Chat kami di WhatsApp!"/>
+  <meta property="og:image" content="assets/img/site.png">
+  <meta property="og:url" content="https://www.facebook.com/TravelBajetAntarabangsa">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
@@ -23,6 +33,7 @@
         <a href="#home" data-i18n="nav_home">Utama</a>
         <a href="#tentang" data-i18n="nav_about">Tentang Kami</a>
         <a href="#destinasi" data-i18n="nav_dest">Destinasi</a>
+        <a href="#galeri" data-i18n="nav_galeri">Galeri</a>
         <a href="#promosi" data-i18n="nav_promo">Promosi</a>
         <a href="#kenapa" data-i18n="nav_why">Kenapa Kami</a>
         <a href="#hubungi" data-i18n="nav_contact">Hubungi</a>
@@ -313,6 +324,18 @@
     </div>
   </section>
 
+  <!-- ====== GALERI ====== -->
+  <section class="section section-alt" id="galeri">
+    <div class="container">
+      <div class="section-head center">
+        <span class="section-tag" data-i18n="galeri_tag">Galeri</span>
+        <h2 class="section-title" data-i18n="galeri_title">Kenangan <span class="highlight">Perjalanan</span></h2>
+        <p data-i18n="galeri_desc">Gambar-gambar pilihan daripada pakej percutian dan umrah kami. Klik untuk paparan penuh.</p>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
   <!-- ====== HUBUNGI / CTA ====== -->
   <section class="section contact" id="hubungi">
     <div class="container">
@@ -396,6 +419,17 @@
     <span class="wa-float-text" data-i18n="float_chat">Chat dengan kami!</span>
   </a>
 
-  <script src="js/main.js"></script>
+  <!-- ====== LIGHTBOX ====== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox-body">
+      <div class="gallery-skeleton lightbox-skeleton" id="lightboxSkeleton"></div>
+      <img id="lightboxImg" src="" alt="Galeri">
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Seterusnya"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>
