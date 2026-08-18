@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -34,7 +34,7 @@
         <a href="#tentang" data-i18n="nav_about">Tentang Kami</a>
         <a href="#destinasi" data-i18n="nav_dest">Destinasi</a>
         <a href="#galeri" data-i18n="nav_galeri">Galeri</a>
-        <a href="#facebook" data-i18n="nav_fb">Facebook</a>
+        <a href="#galeri" data-i18n="nav_fb">Facebook</a>
         <a href="#promosi" data-i18n="nav_promo">Promosi</a>
         <a href="#kenapa" data-i18n="nav_why">Kenapa Kami</a>
         <a href="#hubungi" data-i18n="nav_contact">Hubungi</a>
@@ -159,6 +159,15 @@
               <h3 data-i18n="card_jogja_title">Jogjakarta, Indonesia</h3>
               <p data-i18n="card_jogja_desc">4 hari — Candi Borobudur, Gunung Merapi, Goa Pindul &amp; Malioboro. Percutian bajet kegemaran keluarga.</p>
               <a href="https://wa.me/601127388164?text=Assalamualaikum%2C%20saya%20berminat%20dengan%20PAKEJ%20JOGJAKARTA.%20Boleh%20kongsi%20itinerari%20dan%20harga%3F" data-i18n-href="wa_jogja" target="_blank" rel="noopener" class="btn btn-wa btn-sm btn-block"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="btn_itinerary">Tanya Itinerari</span></a>
+            </div>
+          </article>
+          <article class="dest-card">
+            <div class="dest-img"><img src="https://images.unsplash.com/photo-1614591276564-7b3e69347a48?q=80&w=1200&auto=format&fit=crop" alt="Kashmir, India"></div>
+            <div class="dest-body">
+              <span class="dest-flag" data-i18n="d_flag_luar">Luar Negara</span>
+              <h3 data-i18n="card_kashmir_title">Kashmir, India</h3>
+              <p data-i18n="card_kashmir_desc">7 hari — Srinagar, Dal Lake, Gulmarg, Pahalgam &amp; Sonamarg. Rumah bot ikonik, pemandangan Himalaya &amp; teh Kahwa.</p>
+              <a href="https://wa.me/601127388164?text=Assalamualaikum%2C%20saya%20berminat%20dengan%20PAKEJ%20KASHMIR%20INDIA.%20Boleh%20kongsi%20itinerari%20dan%20harga%3F" data-i18n-href="wa_kashmir" target="_blank" rel="noopener" class="btn btn-wa btn-sm btn-block"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="btn_itinerary">Tanya Itinerari</span></a>
             </div>
           </article>
         </div>
@@ -333,32 +342,24 @@
         <h2 class="section-title" data-i18n="galeri_title">Kenangan <span class="highlight">Perjalanan</span></h2>
         <p data-i18n="galeri_desc">Gambar-gambar pilihan daripada pakej percutian dan umrah kami. Klik untuk paparan penuh.</p>
       </div>
-      <div class="gallery-grid" id="galleryGrid"></div>
-    </div>
-  </section>
 
-  <!-- ====== FACEBOOK FEED ====== -->
-  <section class="section" id="facebook">
-    <div class="container">
-      <div class="section-head center">
-        <span class="section-tag" data-i18n="fb_tag">Media Sosial</span>
-        <h2 class="section-title" data-i18n="fb_title">Ikuti Kami di <span class="highlight">Facebook</span></h2>
-        <p data-i18n="fb_desc">Jangan terlepas promosi dan pakej terbaharu. Ikuti halaman Facebook kami &amp; tekan "Follow Page" untuk kemas kini terkini.</p>
+      <div class="fb-follow">
+        <div class="fb-follow-card">
+          <div class="fb-follow-brand">
+            <img src="assets/img/site.png" alt="TravelBajetAntarabangsa" class="fb-follow-logo">
+            <div class="fb-follow-id">
+              <strong>TravelBajetAntarabangsa</strong>
+              <span>Farafisyah Travel &amp; Tours</span>
+            </div>
+          </div>
+          <div class="fb-follow-actions">
+            <a href="https://www.facebook.com/TravelBajetAntarabangsa/photos" target="_blank" rel="noopener" class="btn btn-fb btn-sm"><i class="fa-brands fa-facebook"></i> <span data-i18n="fb_collection_btn">Lihat Semua Foto di Facebook</span></a>
+            <a href="https://www.facebook.com/TravelBajetAntarabangsa" target="_blank" rel="noopener" class="btn btn-ghost btn-sm"><i class="fa-solid fa-thumbs-up"></i> <span data-i18n="fb_follow_btn">Follow Page</span></a>
+          </div>
+        </div>
       </div>
-      <div class="fb-wrap">
-        <iframe
-          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTravelBajetAntarabangsa&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-          width="500"
-          height="700"
-          style="border:none;overflow:hidden"
-          scrolling="no"
-          frameborder="0"
-          allowfullscreen="true"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          title="Facebook TravelBajetAntarabangsa"
-          loading="lazy">
-        </iframe>
-      </div>
+
+      <div class="gallery-grid" id="galleryGrid"></div>
     </div>
   </section>
 
@@ -456,6 +457,6 @@
     <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Seterusnya"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
 
-  <script src="js/main.js?v=2"></script>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>
