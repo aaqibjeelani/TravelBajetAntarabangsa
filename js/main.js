@@ -123,6 +123,7 @@
       galeri_tag: 'Galeri',
       galeri_title: 'Kenangan <span class="highlight">Perjalanan</span>',
       galeri_desc: 'Gambar-gambar pilihan daripada pakej percutian dan umrah kami. Klik untuk paparan penuh.',
+      galeri_more: 'Lihat Lebih Banyak',
 
       fb_tag: 'Media Sosial',
       fb_title: 'Ikuti Kami di <span class="highlight">Facebook</span>',
@@ -287,6 +288,7 @@
       galeri_tag: 'Gallery',
       galeri_title: 'Journey <span class="highlight">Memories</span>',
       galeri_desc: 'Selected photos from our holiday and umrah packages. Click for full view.',
+      galeri_more: 'Show More',
 
       fb_tag: 'Social Media',
       fb_title: 'Follow Us on <span class="highlight">Facebook</span>',
@@ -619,15 +621,17 @@
   ];
 
   var galleryGrid = document.getElementById('galleryGrid');
+  var galleryLoadMore = document.getElementById('galleryLoadMore');
+  var GALLERY_PAGE_SIZE = 30;
+  var GALLERY_LOADED_COUNT = 0;
 
   function encodePath(str) {
     return str.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29');
   }
 
-  function buildGallery() {
-    if (!galleryGrid) return;
-    galleryGrid.innerHTML = '';
-    GALLERY_IMAGES.forEach(function (file) {
+  function appendGalleryImages(start, end) {
+    for (var i = start; i < end && i < GALLERY_IMAGES.length; i++) {
+      var file = GALLERY_IMAGES[i];
       var src = GALLERY_FOLDER + encodePath(file);
 
       var item = document.createElement('div');
@@ -647,9 +651,34 @@
       item.appendChild(skeleton);
       item.appendChild(img);
       galleryGrid.appendChild(item);
-    });
+    }
+  }
+
+  function buildGallery() {
+    if (!galleryGrid) return;
+    galleryGrid.innerHTML = '';
+    GALLERY_LOADED_COUNT = 0;
+    loadMore();
+  }
+
+  function loadMore() {
+    var start = GALLERY_LOADED_COUNT;
+    var end = start + GALLERY_PAGE_SIZE;
+    appendGalleryImages(start, end);
+    GALLERY_LOADED_COUNT = Math.min(end, GALLERY_IMAGES.length);
+    syncLoadMore();
     initLazyGallery();
     initLightbox();
+  }
+
+  function syncLoadMore() {
+    if (!galleryLoadMore) return;
+    galleryLoadMore.style.display =
+      GALLERY_LOADED_COUNT < GALLERY_IMAGES.length ? '' : 'none';
+  }
+
+  if (galleryLoadMore) {
+    galleryLoadMore.addEventListener('click', loadMore);
   }
 
   function loadGalleryImage(img) {
@@ -733,10 +762,19 @@
     openIndex = -1;
   }
 
+  var lightboxBound = false;
   function initLightbox() {
-    document.querySelectorAll('.gallery-item').forEach(function (item, i) {
-      item.addEventListener('click', function () { showLightbox(i); });
-    });
+    if (lightboxBound) return;
+    lightboxBound = true;
+    if (galleryGrid) {
+      galleryGrid.addEventListener('click', function (e) {
+        var item = e.target.closest('.gallery-item');
+        if (!item) return;
+        var img = item.querySelector('.gallery-img');
+        var imgs = Array.prototype.slice.call(document.querySelectorAll('.gallery-img'));
+        showLightbox(imgs.indexOf(img));
+      });
+    }
     document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
     document.getElementById('lightboxPrev').addEventListener('click', function (e) {
       e.stopPropagation();

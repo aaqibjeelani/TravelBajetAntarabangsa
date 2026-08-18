@@ -614,6 +614,14 @@ ul { list-style: none; }
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
 }
+.gallery-more {
+  text-align: center;
+  margin-top: 44px;
+}
+.gallery-more .btn {
+  padding: 14px 34px;
+  font-size: 0.95rem;
+}
 .gallery-item {
   position: relative;
   aspect-ratio: 1;
