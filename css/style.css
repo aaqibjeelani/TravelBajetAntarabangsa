@@ -637,6 +637,26 @@ ul { list-style: none; }
 .lightbox-next:hover { transform: translateY(-50%) scale(1.08); }
 
 /* ============================================================
+   FACEBOOK FEED
+   ============================================================ */
+#facebook { background: var(--bg); }
+.fb-wrap {
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  padding: 6px;
+  border: 1px solid #e2e8f0;
+}
+.fb-wrap iframe {
+  display: block;
+  width: 100% !important;
+  min-height: 700px;
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
@@ -653,6 +673,7 @@ ul { list-style: none; }
 
 @media (max-width: 768px) {
   .section { padding: 70px 0; }
+  .fb-wrap iframe { min-height: 500px; }
   .nav-menu {
     position: fixed;
     top: 0; right: -100%;

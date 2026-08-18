@@ -15,6 +15,7 @@
       nav_home: 'Utama', nav_about: 'Tentang Kami', nav_dest: 'Destinasi',
       nav_promo: 'Promosi', nav_why: 'Kenapa Kami', nav_contact: 'Hubungi',
       nav_galeri: 'Galeri',
+      nav_fb: 'Facebook',
       nav_wa: 'WhatsApp Kami',
 
       hero_badge: 'Dipercayai 10+ Tahun',
@@ -121,6 +122,10 @@
       galeri_title: 'Kenangan <span class="highlight">Perjalanan</span>',
       galeri_desc: 'Gambar-gambar pilihan daripada pakej percutian dan umrah kami. Klik untuk paparan penuh.',
 
+      fb_tag: 'Media Sosial',
+      fb_title: 'Ikuti Kami di <span class="highlight">Facebook</span>',
+      fb_desc: 'Jangan terlepas promosi dan pakej terbaharu. Ikuti halaman Facebook kami &amp; tekan "Follow Page" untuk kemas kini terkini.',
+
       contact_tag: 'Hubungi Kami',
       contact_title: 'Jom Rancang <span class="highlight">Percutian Anda</span>',
       contact_desc: 'Kami sedia membantu anda. Hantar mesej di WhatsApp atau hubungi kami terus — respons pantas setiap hari.',
@@ -170,6 +175,7 @@
       nav_home: 'Home', nav_about: 'About Us', nav_dest: 'Destinations',
       nav_promo: 'Promotions', nav_why: 'Why Us', nav_contact: 'Contact',
       nav_galeri: 'Gallery',
+      nav_fb: 'Facebook',
       nav_wa: 'WhatsApp Us',
 
       hero_badge: 'Trusted for 10+ Years',
@@ -275,6 +281,10 @@
       galeri_tag: 'Gallery',
       galeri_title: 'Journey <span class="highlight">Memories</span>',
       galeri_desc: 'Selected photos from our holiday and umrah packages. Click for full view.',
+
+      fb_tag: 'Social Media',
+      fb_title: 'Follow Us on <span class="highlight">Facebook</span>',
+      fb_desc: 'Do not miss our latest promotions and packages. Follow our Facebook page &amp; press "Follow Page" for the latest updates.',
 
       contact_tag: 'Contact Us',
       contact_title: "Let's Plan <span class=\"highlight\">Your Trip</span>",
