@@ -483,6 +483,18 @@ ul { list-style: none; }
 .footer-contact i { color: var(--accent); margin-right: 8px; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 22px 0; text-align: center; font-size: 0.85rem; opacity: 0.8; }
 
+.dev-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  color: rgba(255,255,255,0.85);
+  transition: color 0.3s ease;
+}
+.dev-credit:hover { color: var(--accent); }
+.dev-credit img { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; }
+.dev-credit strong { color: var(--accent); }
+
 /* ============================================================
    FLOATING WHATSAPP
    ============================================================ */
