@@ -139,8 +139,8 @@ ul { list-style: none; }
 .hero-bg {
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(15, 36, 53, 0.78) 0%, rgba(15, 36, 53, 0.42) 50%, rgba(10, 92, 91, 0.9) 100%),
-    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+    linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.45) 50%, rgba(0, 0, 0, 0.8) 100%),
+    url('../assets/img/hero.jpg') center/cover no-repeat;
   animation: heroZoom 26s ease-in-out infinite alternate;
   will-change: transform;
 }
