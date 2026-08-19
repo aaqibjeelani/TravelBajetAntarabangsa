@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="css/chatbot.css?v=1">
 </head>
 <body>
 
@@ -476,6 +477,30 @@
     </div>
   </footer>
 
+  <!-- ====== AI CHATBOT ====== -->
+  <div class="chatbot" id="chatbot">
+    <button type="button" class="chatbot-toggle" id="chatbotToggle" aria-label="Chat dengan AI Farafisyah">
+      <i class="fa-solid fa-robot"></i>
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="chatbot-panel" id="chatbotPanel" aria-hidden="true">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar"><i class="fa-solid fa-robot"></i></div>
+        <div class="chatbot-header-info">
+          <strong>Farafisyah AI</strong>
+          <span class="chatbot-status"><i class="fa-solid fa-circle"></i> Online</span>
+        </div>
+        <button type="button" class="chatbot-close" id="chatbotClose" aria-label="Tutup chat"><i class="fa-solid fa-chevron-down"></i></button>
+      </div>
+      <div class="chatbot-body" id="chatbotBody"></div>
+      <div class="chatbot-quick" id="chatbotQuick"></div>
+      <form class="chatbot-input" id="chatbotForm">
+        <input type="text" id="chatbotText" autocomplete="off" placeholder="Taip soalan anda...">
+        <button type="submit" aria-label="Hantar"><i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+
   <!-- ====== FLOATING WHATSAPP ====== -->
   <a href="https://wa.me/601127388164?text=Assalamualaikum%2C%20saya%20ingin%20bertanya%20mengenai%20pakej%20percutian" data-i18n-href="wa_float" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
@@ -494,5 +519,6 @@
   </div>
 
   <script src="js/main.js?v=8"></script>
+  <script src="js/chatbot.js?v=1"></script>
 </body>
 </html>
