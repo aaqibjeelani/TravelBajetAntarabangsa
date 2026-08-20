@@ -407,11 +407,4 @@
 
   input.setAttribute('placeholder', dict().placeholder);
   toggle.setAttribute('aria-label', dict().toggle);
-
-  /* auto-open once for first-time visitors after a short delay */
-  setTimeout(function () {
-    if (!chatbot.classList.contains('open')) {
-      openPanel();
-    }
-  }, 2500);
 })();
