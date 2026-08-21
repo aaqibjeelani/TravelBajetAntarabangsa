@@ -144,6 +144,22 @@
       galeri_desc: 'Gambar-gambar pilihan daripada pakej percutian dan umrah kami. Klik untuk paparan penuh.',
       galeri_more: 'Lihat Lebih Banyak',
 
+      faq_tag: 'Soalan Lazim',
+      faq_title: 'Soalan <span class="highlight">Lazim</span>',
+      faq_desc: 'Jawapan kepada soalan-soalan yang sering ditanya tentang pakej percutian dan perkhidmatan kami.',
+      faq_q1: 'Apakah pakej percutian yang ditawarkan oleh Farafisyah Travel?',
+      faq_a1: 'Kami menawarkan pakej percutian dalam negara seperti Langkawi, Cameron Highlands dan Pulau Perhentian, serta pakej luar negara seperti Turkiye, Switzerland, Perth, Kashmir, Japan, Italy, New Zealand, Egypt dan banyak lagi. Setiap pakej merangkumi penginapan, pengangkutan dan makanan terpilih.',
+      faq_q2: 'Adakah Farafisyah Travel menawarkan pakej umrah?',
+      faq_a2: 'Ya, kami menyediakan pakej umrah sepanjang tahun dengan mutawwif berpengalaman dan rangkaian sah. Pengurusan visa, penginapan berdekatan Masjidil Haram dan Masjid Nabawi, serta bimbingan ibadah lengkap dari awal hingga akhir.',
+      faq_q3: 'Bagaimana cara untuk membuat tempahan pakej percutian?',
+      faq_a3: 'Anda boleh menghubungi kami terus melalui WhatsApp di +60 11-2738 8164 atau hantar borang pertanyaan di laman web kami. Kami akan membantu anda memilih pakej dan menerangkan butiran harga, itinerari dan tarikh perjalanan.',
+      faq_q4: 'Di manakah lokasi pejabat Farafisyah Travel?',
+      faq_a4: 'Pejabat kami terletak di 13-2-2 Jalan KL-Mantin, Batu 12, 71700 Mantin, Negeri Sembilan, Malaysia. Perkhidmatan kami meliputi seluruh Malaysia dengan tempahan melalui WhatsApp.',
+      faq_q5: 'Bolehkah pakej percutian disesuaikan mengikut bajet dan tarikh saya?',
+      faq_a5: 'Boleh. Kami menyediakan itinerari custom made yang fleksibel. Beritahu kami destinasi, tarikh dan bajet anda, dan kami akan susun rancangan perjalanan yang sesuai dengan keperluan anda.',
+      faq_q6: 'Adakah bayaran pakej boleh dibuat secara ansuran?',
+      faq_a6: 'Ya, kami menyediakan kemudahan bayaran secara ansuran untuk memudahkan perancangan bajet anda. Sila hubungi kami melalui WhatsApp untuk maklumat lanjut mengenai pakej dan kaedah pembayaran.',
+
       fb_tag: 'Media Sosial',
       fb_title: 'Ikuti Kami di <span class="highlight">Facebook</span>',
       fb_desc: 'Jangan terlepas promosi dan pakej terbaharu. Ikuti halaman Facebook kami &amp; tekan "Follow Page" untuk kemas kini terkini.',
@@ -327,6 +343,22 @@
       galeri_desc: 'Selected photos from our holiday and umrah packages. Click for full view.',
       galeri_more: 'Show More',
 
+      faq_tag: 'FAQ',
+      faq_title: 'Frequently Asked <span class="highlight">Questions</span>',
+      faq_desc: 'Answers to common questions about our travel packages and services.',
+      faq_q1: 'What travel packages does Farafisyah Travel offer?',
+      faq_a1: 'We offer domestic packages such as Langkawi, Cameron Highlands and Perhentian Islands, plus international packages such as Turkiye, Switzerland, Perth, Kashmir, Japan, Italy, New Zealand, Egypt and many more. Every package includes accommodation, transportation and selected meals.',
+      faq_q2: 'Does Farafisyah Travel offer umrah packages?',
+      faq_a2: 'Yes, we provide year-round umrah packages with experienced and accredited mutawwif. Visa processing, accommodation near Masjidil Haram and Masjid Nabawi, plus complete worship guidance from start to finish.',
+      faq_q3: 'How do I book a travel package?',
+      faq_a3: 'You can contact us directly via WhatsApp at +60 11-2738 8164 or submit an enquiry form on our website. We will help you choose a package and explain pricing, itinerary and travel dates.',
+      faq_q4: 'Where is Farafisyah Travel located?',
+      faq_a4: 'Our office is at 13-2-2 Jalan KL-Mantin, Batu 12, 71700 Mantin, Negeri Sembilan, Malaysia. Our services cover all of Malaysia with bookings via WhatsApp.',
+      faq_q5: 'Can travel packages be customized to my budget and dates?',
+      faq_a5: 'Yes. We provide flexible custom-made itineraries. Tell us your destination, dates and budget, and we will arrange a travel plan that suits your needs.',
+      faq_q6: 'Can I pay for the package in instalments?',
+      faq_a6: 'Yes, we provide instalment payment plans to make budget planning easier. Contact us via WhatsApp for more information on packages and payment options.',
+
       fb_tag: 'Social Media',
       fb_title: 'Follow Us on <span class="highlight">Facebook</span>',
       fb_desc: 'Do not miss our latest promotions and packages. Follow our Facebook page &amp; press "Follow Page" for the latest updates.',
@@ -465,8 +497,8 @@
     });
 
     document.title = lang === 'en'
-      ? 'TravelBajetAntarabangsa | Farafisyah Travel & Tours'
-      : 'TravelBajetAntarabangsa | Farafisyah Travel & Tours';
+      ? 'Budget Travel & Umrah Packages Malaysia | Farafisyah Travel & Tours'
+      : 'Pakej Percutian & Umrah Murah Malaysia | Farafisyah Travel & Tours';
 
     langToggleLabel.textContent = lang === 'ms' ? 'EN' : 'MS';
     localStorage.setItem('tba_lang', lang);

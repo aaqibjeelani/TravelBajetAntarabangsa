@@ -453,6 +453,45 @@ ul { list-style: none; }
    TESTIMONI
    ============================================================ */
 .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-list { max-width: 820px; margin: 0 auto; display: grid; gap: 16px; }
+.faq-item {
+  background: var(--white);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+.faq-item[open] { box-shadow: var(--shadow-lg); border-color: rgba(14, 124, 123, 0.35); }
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dark);
+  cursor: pointer;
+  list-style: none;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q i {
+  flex-shrink: 0;
+  color: var(--primary);
+  transition: transform 0.3s ease;
+}
+.faq-item[open] .faq-q i { transform: rotate(180deg); }
+.faq-a {
+  padding: 0 24px 22px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
 .testi-card {
   background: var(--white);
   border-radius: var(--radius);

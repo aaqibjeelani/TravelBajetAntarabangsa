@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://farafisyah.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://farafisyah.com/assets/img/site.png</image:loc>
+      <image:title>Farafisyah Travel &amp; Tours - TravelBajetAntarabangsa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://farafisyah.com/assets/img/hero.jpg</image:loc>
+      <image:title>Pakej percutian dalam &amp; luar negara murah Malaysia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://farafisyah.com/assets/img/1.jpg</image:loc>
+      <image:title>Pakej umrah Farafisyah Travel</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://farafisyah.com/assets/img/2.jpg</image:loc>
+      <image:title>Pakej percutian luar negara</image:title>
+    </image:image>
+  </url>
+</urlset>

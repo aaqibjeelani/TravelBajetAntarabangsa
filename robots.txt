@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /gallery.php
+
+Sitemap: https://farafisyah.com/sitemap.xml
